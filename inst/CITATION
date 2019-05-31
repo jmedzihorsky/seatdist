@@ -1,0 +1,37 @@
+citHeader("To cite package 'seatdist' in publications please use the following. Other publications related to the package are also listed below.")
+
+## R >= 2.8.0 passes package metadata to citation().
+if(!exists("meta") || is.null(meta)) meta <- packageDescription("seatdist")
+year <- sub("-.*", "", meta$Date)
+note <- sprintf("R package version %s", meta$Version)
+
+citEntry(entry = "Manual",
+         title = "seatdist: R package for seat apportionment and disproportionality measurement",
+         author = personList(as.person("Juraj Medzihorsky")),                            
+         year = year,
+         note = note,
+         url = "https://github.com/jmedzihorsky/seatdist",
+
+         textVersion = 
+         sprintf("Juraj Medzihorsky 
+                  (%s). seatdist: R package for seat apportionment and disproportionality measurement.
+                  URL https://github.com/jmedzihorsky/seatdist.", year)
+)
+
+
+citEntry(entry = "Article", 
+         title = "Understanding the D'Hondt Method",
+         author = "Juraj Medzihorsky",
+         year = 2019,
+         url = "https://doi.org/10.1080/2474736X.2019.1625712",
+         journal = "Political Research Exchange",
+
+         textVersion =
+         sprintf("Juraj Medzihorsky
+                 (%s). Understanding the D'Hondt Method.
+                 PRX.
+                 URL https://doi.org/10.1080/2474736X.2019.1625712.", year)
+) 
+
+
+

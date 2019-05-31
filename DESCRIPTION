@@ -1,0 +1,15 @@
+Package: seatdist
+Type: Package
+Title: seat apportionment and disproportionality measurement
+Version: 0.2
+Date: 2019-05-30
+Author: Juraj Medzihorsky [aut, cre]
+Maintainer: Juraj Medzihorsky <juraj.medzihorsky@gmail.com>
+Description: seatdist is a package for proportional seat apportionment and
+    measurement of apportionment disproportionality.
+Depends: R (>= 3.4.0)
+Imports: combinat
+License: GPL-2
+Encoding: UTF-8
+BugReports: https://github.com/jmedzihorsky/seatdist/issues
+References:
