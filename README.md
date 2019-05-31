@@ -23,6 +23,17 @@ You can install it using `devtools`
 `install_github("jmedzihorsky/seatdist")`
 
 
+## Use
+
+The main functions are
+
+`giveseats()`
+
+and
+
+`disproportionality()`
+
+
 ## Approtionemnt Methods
 
 ### Divisor Methods
