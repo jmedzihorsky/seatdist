@@ -3,10 +3,11 @@
 \alias{seatdist}
 \docType{package}
 \title{
-    \packageTitle{seatdist}
+    seatdist: Seat Apportionment and Disproportionality Measurement
 }
 \description{
-    \packageDescription{seatdist}
+    Functions for seat apportionment and
+    measurement of apportionment disproportionality.
 }
 \details{
     The DESCRIPTION file:
@@ -14,12 +15,12 @@
     \packageIndices{seatdist}
 }
 \author{
-    \packageAuthor{seatdist}
+    Juraj Medzihorsky
 
-    Maintainer: \packageMaintainer{seatdist}
+    Maintainer: Juraj Medzihorsky <juraj.medzihorsky@gmail.com>
 }
 \references{
-    Medzihorsky, J. 2019. Understanding the D'Hondt Method
+    Medzihorsky, J. 2019. Understanding the D'Hondt Method. PRX.
 }
 %% \keyword{ package }
 %% \seealso{}

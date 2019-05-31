@@ -23,14 +23,13 @@ citEntry(entry = "Article",
          title = "Understanding the D'Hondt Method",
          author = "Juraj Medzihorsky",
          year = 2019,
-         url = "https://doi.org/10.1080/2474736X.2019.1625712",
          journal = "Political Research Exchange",
 
          textVersion =
          sprintf("Juraj Medzihorsky
                  (%s). Understanding the D'Hondt Method.
                  PRX.
-                 URL https://doi.org/10.1080/2474736X.2019.1625712.", year)
+                 doi:10.1080/2474736X.2019.1625712.", year)
 ) 
 
 

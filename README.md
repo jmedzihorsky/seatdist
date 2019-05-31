@@ -34,6 +34,10 @@ and
 `disproportionality()`
 
 
+More details in the
+[manual](https://github.com/jmedzihorsky/seatdist/blob/master/seatdist-manual.pdf).
+
+
 ## Approtionemnt Methods
 
 ### Divisor Methods
