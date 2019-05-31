@@ -56,5 +56,10 @@ You can install it using `devtools`
 |Reinforced Imperiali| V/(S+3) |
 
 
+## Disproportionalities
+
+You can find a table with the measures, formulas, and citations 
+[here](https://github.com/jmedzihorsky/seatdist/blob/master/seatdist_info.pdf).
+
 
 
