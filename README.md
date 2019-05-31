@@ -21,3 +21,15 @@ You can install it using `devtools`
 `library(devtools)`
 
 `install_github("jmedzihorsky/seatdist")`
+
+
+## Approtionemnt Methods
+
+### Divisor Methods
+
+|Method|Formula|Sequence|
+|------|:-----:|--------|
+|D'Hondt|x|1,2,3,4,5,...|
+
+
+
