@@ -20,7 +20,7 @@
     Maintainer: Juraj Medzihorsky <juraj.medzihorsky@gmail.com>
 }
 \references{
-    Medzihorsky, J. 2019. Understanding the D'Hondt Method. PRX.
+    Medzihorsky, J. 2019. Rethinking the D'Hondt Method. PRX 1 (1): 41-55. 
 }
 %% \keyword{ package }
 %% \seealso{}

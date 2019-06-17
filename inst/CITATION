@@ -20,14 +20,14 @@ citEntry(entry = "Manual",
 
 
 citEntry(entry = "Article", 
-         title = "Understanding the D'Hondt Method",
+         title = "Rethinking the D'Hondt Method",
          author = "Juraj Medzihorsky",
          year = 2019,
          journal = "Political Research Exchange",
 
          textVersion =
          sprintf("Juraj Medzihorsky
-                 (%s). Understanding the D'Hondt Method.
+                 (%s). Rethinking the D'Hondt Method.
                  PRX.
                  doi:10.1080/2474736X.2019.1625712.", year)
 ) 

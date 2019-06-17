@@ -11,7 +11,7 @@ offers more apportionemnt methods and measures,
 and corrects some errors.
 
 It is a companion package to
-[Medzihorsky, Juraj. (2019). Understanding the D'Hondt Method. _PRX_.](https://doi.org/10.1080/2474736X.2019.1625712)
+[Medzihorsky, Juraj. (2019). Rethinking the D'Hondt Method. _PRX_.](https://doi.org/10.1080/2474736X.2019.1625712)
 
 
 ## Installation
