@@ -3,7 +3,8 @@ function(v,
              ns,
              method,
              thresh=0,
-             quota=NA)
+             quota=NA,
+             divs=NULL)
     {
         if (!is.numeric(thresh)) {
             stop('thresh must be numeric\n')
@@ -40,6 +41,12 @@ function(v,
         } else if (meth %in% c('hu', 'hun', 'hungarian')) {
             o <- hungarian(votes=vn, m=ns)
             mn <- c('Hungarian')
+        } else if (meth %in% c('ne', 'nep', 'nor', 'nepal', 'norway', 'nepalese', 'norwegian') ) {
+            o <- nepalese(votes=vn, m=ns)
+            mn <- 'Nepalese/Norwegian'
+        } else if (meth %in% c('sw', 'swe', 'sweden', 'swedish') ) {
+            o <- swedish(votes=vn, m=ns)
+            mn <- 'Swedish (new)'
         } else if (meth %in% c('da', 'dan', 'danish') ) {
             o <- danish(votes=vn, m=ns)
             mn <- 'Danish'
@@ -57,11 +64,31 @@ function(v,
         } else if (meth %in% c('no', 'noh', 'nohlen') ) {
             o <- nohlen(votes=vn, m=ns)
             mn <- 'Nohlen'
+        } else if (meth %in% c('pl', 'plur', 'plurality') ) {
+            o <- steady(votes=vn, m=ns)
+            mn <- 'Plurality'
+        } else if (meth %in% c('de', 'dea','dean') ) {
+            o <- dean(votes=vn, m=ns)
+            mn <- 'Dean'
+        } else if (meth %in% c('ts', 'thsch', 'theilschrage', 'theil-schrage') ) {
+            o <- theilschrage(votes=vn, m=ns)
+            mn <- 'Theil-Schrage'
+        } else if (meth %in% c('ag', 'agnew', 'ossipoff') ) {
+            o <- agnew(votes=vn, m=ns)
+            mn <- 'Agnew'
+        } else if (meth %in% c('ich', 'ichimori', 'ichimori 1/3', 'ichimori13')) {
+            o <- ichimori13(votes=vn, m=ns)
+            mn <- 'Ichimori 1/3'
+        } else if (meth %in% c('custom')) {
+            o <- customdivisor(votes=vn, m=ns, div=divs)
+            mn <- 'user-supplied divisors'                        
         } else if (meth %in% c('lr', 'largest', 'remainders', 'largest remainders') ) {
             a <- lr(votes=vn, m=ns, qnm=quota) 
             o <- a$seats
             mn <- paste('Largest Remainders with', a$qn, 'quota')
         }
         
+        if(sum(o)>ns) { warning('more seats awarded than allowed, check for ties') }
+
         return(list(method=mn, seats=o))
     }

@@ -65,6 +65,20 @@ function(.votes, .m, .div)
     }
 
 
+#   custom divisors
+customdivisor <-
+function(votes, m, div)
+    {
+        if (!is.numeric(div)) { stop('the supplied divisors are not numeric') }
+        if (sum(is.na(div))>0) { stop('the supplied divisors contain at least one NA') }
+        if (sum(is.nan(div))>0) { stop('the supplied divisors contain at least one NaN') }
+        if (length(div)<m) { stop('the supplied divisor vector is shorter than the number of seats') }
+        if (sum(div<0)>0) { stop('the supplied divisor vector contains at least one negative value') }
+        div <- as.vector(div)    
+        return(divisormethod(.votes=votes, .m=m, .div=div))
+    }
+
+
 #   D'Hondt/Jefferson/Hagenbach-Bischoff
 dh <-
 function(votes, m)
@@ -121,6 +135,24 @@ function(votes, m)
     }
 
 
+#   Nepalese/Norwegian Sainte-Lague (also old Swedish)
+nepalese <-
+function(votes, m)
+    {
+        div <- c(1.4, 2*(2:m) - 1)
+        return(divisormethod(.votes=votes, .m=m, .div=div))
+    }
+
+
+#   Swedish Sainte-Lague
+swedish <-
+function(votes, m)
+    {
+        div <- c(1.2, 2*(2:m) - 1)
+        return(divisormethod(.votes=votes, .m=m, .div=div))
+    }
+
+
 #   Imperiali
 imperiali <-
 function(votes, m)
@@ -144,6 +176,57 @@ hh <-
 function(votes, m)
     {
         div <- sqrt( (1:m) * ((1:m)-1) )
+        return(divisormethod(.votes=votes, .m=m, .div=div))
+    }
+
+
+#   Plurality (Steady)
+steady <-
+function(votes, m)
+    {
+        div <- rep(1, m)
+        return(divisormethod(.votes=votes, .m=m, .div=div))
+    }
+
+
+#   Dean
+dean <-
+function(votes, m)
+    {
+        x <- 1:m
+        y <- x-1
+        div <- 2 * x * y / (x+y)
+        return(divisormethod(.votes=votes, .m=m, .div=div))
+    }
+
+
+#   Theil-Schrage (logarithmic mean)
+theilschrage <- 
+function(votes, m)
+    {
+        div <- 1/( log(1:m) - log((1:m)-1) )
+        return(divisormethod(.votes=votes, .m=m, .div=div))
+    }
+
+
+#   Agnew (identric mean)
+agnew <- 
+function(votes, m)
+    {
+        x <- 1:m
+        y <- x-1
+        div0 <- (1/exp(1)) * ((x^x)/(y^y)) #^(1/(x-y))
+        div1 <- exp( x*log(x) - y*log(y) - 1 )        
+        div <- c(div0[1], div1[2:m])
+        return(divisormethod(.votes=votes, .m=m, .div=div))
+    }
+
+
+#   Ichimori 1/3
+ichimori13 <-
+    function(votes, m)
+    {
+        div <- sqrt((1:m)^2 + (1:m) + (1/3))
         return(divisormethod(.votes=votes, .m=m, .div=div))
     }
 

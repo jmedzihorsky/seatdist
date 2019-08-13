@@ -10,9 +10,10 @@
     measurement of apportionment disproportionality.
 }
 \details{
-    The DESCRIPTION file:
-    \packageDESCRIPTION{seatdist}
-    \packageIndices{seatdist}
+%    The DESCRIPTION file:
+%    \packageDESCRIPTION{seatdist}
+%    \packageIndices{seatdist}
+    Currently with 19 apportionment methods and 30 disproportionality measures.
 }
 \author{
     Juraj Medzihorsky

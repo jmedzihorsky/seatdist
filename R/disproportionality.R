@@ -139,9 +139,32 @@ function(s,
         } else if (m=='mixture') { # 24
             o <- 1 - 1/max(p_s/p_v)
             nm <- "Mixture D'Hondt" 
+        } else if (m=='arr') { # 25
+            o <- (1 - 1/max(p_s/p_v))*(1/l_s)
+            nm <- "Lebeda's ARR" 
+        } else if (m=='srr') { # 26
+            o <- sqrt( sum( (p_v - p_s/max(p_s/p_v))^2  ) )
+            nm <- "Lebeda's SRR" 
+        } else if (m=='wdrr') { # 27
+            o <- (1/3)*( sum(abs(p_v-p_s)) + (1 - 1/max(p_s/p_v)) )
+            nm <- "Lebeda's WDRR" 
+        } else if (m=='surprise') { # 28
+            pfil <- p_s > 0
+            o <- sum( (p_s * log(p_s / p_v))[pfil] )
+            nm <- 'Kullback-Leibler Surprise'
+        } else if (m=='lrstat') { # 29
+            o <- 2 * sum( (p_v * log(p_v / p_s )))
+            nm <- 'Likelihood Ratio Statistic'
+        } else if (m=='chisq') { # 30
+            pfil <- p_s > 0
+            o <- sum( (((p_v-p_s)^2)/p_s)[pfil] )
+            nm <- 'Chi Squared'
+        } else if (m=='hellinger') { # 31
+            o <- (1/sqrt(2)) * sqrt(sum( (sqrt(p_s)-sqrt(p_v))^2 )) 
+            nm <- 'Hellinger Distance'
         } else {
             stop('unsupported measure\n')
         }
 
-        return(list(measure=nm, distance=o)) 
+        return(list(measure=nm, value=o)) 
     }

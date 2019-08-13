@@ -78,7 +78,22 @@ disproportionality(s, v, measure = "mixture", ignore_zeros = TRUE, k = 2,
   
     \code{"cosine"} for the Cosine Dissimilarity index \deqn{ I_{CD} = 1 - \frac{ \sum_i s_i v_i }{ \sqrt{\sum_i s_i^2} \sqrt{\sum_i v_i^2} } }
 
-    \code{"mixture"} for the Mixture D'Hondt index \deqn{\pi^*_{DH} = 1 - \frac{1}{\max_i s_i/v_i} }
+    \code{"mixture"} for the Mixture D'Hondt index \deqn{\pi^*_{DH} = 1 - \frac{1}{\max_i \frac{s_i}{v_i}} }, eqivalent to Lebeda's (2006) Real Residuals index
+
+
+    \code{"arr"} for Lebeda's (2006) ARR index \deqn{ARR = \frac{1}{p}\left(1 - \frac{1}{\max_i \frac{s_i}{v_i}}\right)}
+
+    \code{"srr"} for Lebeda's (2006) SRR index \deqn{SRR = \sqrt{ \sum_i \left(v_i - \frac{s_i}{ \max_i \frac{s_i}{v_i} } \right)^2   }}
+
+    \code{"wdrr"} for Lebeda's (2006) WDRR index \deqn{WDRR = \frac{1}{3} \left( \left(\sum_i|v_i-s_i|\right) + \left(1 - \frac{1}{\max_i\frac{s_i}{v_i}}\right) \right)}
+
+    \code{"surprise"} for the Kullback-Liebler surprise (how surprising is s given v) \deqn{KL = \sum_{s_i>0} s_i \ln \frac{s_i}{v_i}} 
+
+    \code{"lrstat"} for the Likelihood ratio statistic \deqn{G = 2 \sum_{i} v_i \ln \frac{v_i}{s_i}}
+
+    \code{"chisq"} for the Pearson's Chi Squared  \deqn{\chi^2 = \sum_{s_i>0} \frac{(v_i-s_i)^2}{s_i}}
+
+    \code{"hellinger"} for the Hellinger Distance \deqn{HD = \frac{1}{\sqrt{2}}\sqrt{\sum_i\left(\sqrt{s_i} - \sqrt{v_i}\right)^2}}
 
     Argument \code{powind} currently only takes a single value \code{"shapley shubik"} for the Shapley-Shubik index.
 
@@ -86,7 +101,7 @@ disproportionality(s, v, measure = "mixture", ignore_zeros = TRUE, k = 2,
 \value{
     A named list of two items:
     \item{measure}{character, the measure used}
-    \item{distance}{numeric, distance from proportionality}
+    \item{value}{numeric, value}
 }
 \references{
     Chessa, Michela, and Vito Fragnelli. 2012. "A note on 'Measurement of disproportionality in proportional representation systems'".Mathematical and Computer Modelling 55 (3): 1655–1660.
@@ -95,7 +110,9 @@ disproportionality(s, v, measure = "mixture", ignore_zeros = TRUE, k = 2,
 
     Grilli di Cortona, Pietro, et al. 1999. Evaluation and Optimization of Electoral Systems. SIAM.
 
-    Karpov, Alexander. 2008. 'Measurement of disproportionality in proportional representation systems'. Mathematical and Computer Modelling 48 (9): 1421–1438.
+    Karpov, Alexander. 2008. "Measurement of disproportionality in proportional representation systems". Mathematical and Computer Modelling 48 (9): 1421–1438.
+
+    Lebeda, Tomáš. 2006. "Teorie reálné kvóty, alternativní přístup k meření volební proporcionality [Real Quota Theory, an Alternative Approach to Measuring Electoral Proportionality]". Czech Sociological Review 42 (4): 657–681.
 
     Loosemore, John, and Victor J Hanby. 1971. "The theoretical limits of maximum distortion: some analytic expressions for electoral systems". British Journal of Political Science 1 (4): 467–477.
 
@@ -119,7 +136,7 @@ disproportionality(s, v, measure = "mixture", ignore_zeros = TRUE, k = 2,
     #   $measure
     #   [1] "Gallagher"
     
-    #   $distance
+    #   $value
     #   [1] 0.02
 }
 %% \keyword{ disproportionality }

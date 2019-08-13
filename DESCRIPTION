@@ -1,8 +1,8 @@
 Package: seatdist
 Type: Package
 Title: Seat Apportionment and Disproportionality Measurement
-Version: 0.2
-Date: 2019-05-30
+Version: 0.3
+Date: 2019-08-08
 Author: Juraj Medzihorsky [aut, cre]
 Maintainer: Juraj Medzihorsky <juraj.medzihorsky@gmail.com>
 Description: Functions for seat apportionment and
